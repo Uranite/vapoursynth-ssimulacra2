@@ -21,6 +21,7 @@ pub fn build(b: *std.Build) void {
 
     lib.root_module.addImport("vapoursynth", vapoursynth_dep.module("vapoursynth"));
     lib.linkLibC();
+    lib.linkSystemLibrary("m");
 
     if (lib.root_module.optimize == .ReleaseFast) {
         lib.root_module.strip = true;
